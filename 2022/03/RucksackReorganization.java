@@ -3,9 +3,6 @@ import java.io.IOException;
 import java.util.*;
 
 public class RucksackReorganization {
-
-
-
     public static void main(String args[]) {
 
         Map<Character, Integer> prio = new HashMap<>();
@@ -36,10 +33,9 @@ public class RucksackReorganization {
                     char cur = compartmentOne.charAt(i);
                     if(compartmentTwo.indexOf(cur) >= 0) {
                         sum += prio.get(cur);
-                        continue;
+                        break;
                     }
                 }
-
             }
             sc.close();
 
@@ -48,6 +44,5 @@ public class RucksackReorganization {
         }
 
         System.out.println("prios: " + sum);
-
     }
 }
