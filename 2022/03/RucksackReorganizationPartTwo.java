@@ -1,8 +1,11 @@
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-public class RucksackReorganization {
+public class RucksackReorganizationPartTwo {
+
     public static void main(String args[]) {
 
         Map<Character, Integer> prio = new HashMap<>();
@@ -21,21 +24,22 @@ public class RucksackReorganization {
 
         try {
 
-            FileInputStream fis = new FileInputStream("./input.txt");
+            FileInputStream fis = new FileInputStream("/Users/sebi/IdeaProjects/AoC#1/src/ltd/FireEvening/inputs/03.txt");
             Scanner sc = new Scanner(fis);
 
             while (sc.hasNextLine()) {
-                String curLine = sc.nextLine().trim();
-                String compartmentOne = curLine.substring(0, (curLine.length()/2));
-                String compartmentTwo = curLine.substring((curLine.length()/2));
+                String first = sc.nextLine().trim();
+                String second = sc.nextLine().trim();
+                String third = sc.nextLine().trim();
 
-                for(int i = 0; i < compartmentOne.length(); i++) {
-                    char cur = compartmentOne.charAt(i);
-                    if(compartmentTwo.indexOf(cur) >= 0) {
-                        sum += prio.get(cur);
+                for(int i = 0; i <= first.length(); i++) {
+                    char firstChar = first.charAt(i);
+                    if(second.indexOf(firstChar) != -1 && third.indexOf(firstChar) != -1) {
+                        sum += prio.get(firstChar);
                         break;
                     }
                 }
+
             }
             sc.close();
 
@@ -44,5 +48,8 @@ public class RucksackReorganization {
         }
 
         System.out.println("prios: " + sum);
+
     }
+
+
 }
