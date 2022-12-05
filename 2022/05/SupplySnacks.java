@@ -151,53 +151,44 @@ public class SupplySnacks {
             int from = Integer.parseInt(""+fromSub.trim().substring(0,2).trim());
             int to = Integer.parseInt(""+toSub.trim().charAt(0));
 
-            String curSen = "";
+
             for(int i = count; i > 0; i--) {
                 char cur = ' ';
                 switch (from) {
                     case 1: {
                         cur = stackOne.pop();
-                        curSen += cur;
                         break;
                     }
                     case 2: {
                         cur = stackTwo.pop();
-                        curSen += cur;
                         break;
                     }
                     case 3: {
                         cur = stackThree.pop();
-                        curSen += cur;
                         break;
                     }
                     case 4: {
                         cur = stackFour.pop();
-                        curSen += cur;
                         break;
                     }
                     case 5: {
                         cur = stackFive.pop();
-                        curSen += cur;
                         break;
                     }
                     case 6: {
                         cur = stackSix.pop();
-                        curSen += cur;
                         break;
                     }
                     case 7: {
                         cur = stackSeven.pop();
-                        curSen += cur;
                         break;
                     }
                     case 8: {
                         cur = stackEight.pop();
-                        curSen += cur;
                         break;
                     }
                     case 9: {
                         cur = stackNine.pop();
-                        curSen += cur;
                         break;
                     }
                 }
@@ -241,6 +232,50 @@ public class SupplySnacks {
                     }
                 }
             }
+
+            StringBuilder curSen = new StringBuilder();
+
+            for(int i = count; i > 0; i--) {
+                switch (from) {
+                    case 1: {
+                        curSen.append(stackOneQ2.pop());
+                        break;
+                    }
+                    case 2: {
+                        curSen.append(stackTwoQ2.pop());
+                        break;
+                    }
+                    case 3: {
+                        curSen.append(stackThreeQ2.pop());
+                        break;
+                    }
+                    case 4: {
+                        curSen.append(stackFourQ2.pop());
+                        break;
+                    }
+                    case 5: {
+                        curSen.append(stackFiveQ2.pop());
+                        break;
+                    }
+                    case 6: {
+                        curSen.append(stackSixQ2.pop());
+                        break;
+                    }
+                    case 7: {
+                        curSen.append(stackSevenQ2.pop());
+                        break;
+                    }
+                    case 8: {
+                        curSen.append(stackEightQ2.pop());
+                        break;
+                    }
+                    case 9: {
+                        curSen.append(stackNineQ2.pop());
+                        break;
+                    }
+                }
+            }
+
 
             for(int j = curSen.length()-1; j >= 0; j--) {
                 switch (to) {
