@@ -1,4 +1,3 @@
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class SupplySnacks {
         StringBuilder eight = new StringBuilder();
         StringBuilder nine = new StringBuilder();
 
-        FileInputStream fis = new FileInputStream("./input.txt");
+        FileInputStream fis = new FileInputStream("/Users/sebi/IdeaProjects/AoC#1/src/ltd/FireEvening/inputs/05.txt");
         Scanner sc = new Scanner(fis);
 
 
@@ -152,9 +151,9 @@ public class SupplySnacks {
             int from = Integer.parseInt(""+fromSub.trim().substring(0,2).trim());
             int to = Integer.parseInt(""+toSub.trim().charAt(0));
 
+            String curSen = "";
             for(int i = count; i > 0; i--) {
                 char cur = ' ';
-                String curSen = "";
                 switch (from) {
                     case 1: {
                         cur = stackOne.pop();
@@ -241,50 +240,47 @@ public class SupplySnacks {
                         break;
                     }
                 }
+            }
 
-                if(i == 1) {
-                    for(int j = 0; i < curSen.length(); i++) {
-                        switch (to) {
-                            case 1: {
-                                stackOneQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 2: {
-                                stackTwoQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 3: {
-                                stackThreeQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 4: {
-                                stackFourQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 5: {
-                                stackFiveQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 6: {
-                                stackSixQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 7: {
-                                stackSevenQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 8: {
-                                stackEightQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                            case 9: {
-                                stackNineQ2.push(curSen.charAt(j));
-                                break;
-                            }
-                        }
+            for(int j = curSen.length()-1; j >= 0; j--) {
+                switch (to) {
+                    case 1: {
+                        stackOneQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 2: {
+                        stackTwoQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 3: {
+                        stackThreeQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 4: {
+                        stackFourQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 5: {
+                        stackFiveQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 6: {
+                        stackSixQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 7: {
+                        stackSevenQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 8: {
+                        stackEightQ2.push(curSen.charAt(j));
+                        break;
+                    }
+                    case 9: {
+                        stackNineQ2.push(curSen.charAt(j));
+                        break;
                     }
                 }
-
             }
 
         }
