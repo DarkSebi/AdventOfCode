@@ -1,6 +1,9 @@
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -91,32 +94,51 @@ public class SupplySnacks {
         Stack<Character> stackEight = new Stack<>();
         Stack<Character> stackNine = new Stack<>();
 
+        Stack<Character> stackOneQ2 = new Stack<>();
+        Stack<Character> stackTwoQ2 = new Stack<>();
+        Stack<Character> stackThreeQ2 = new Stack<>();
+        Stack<Character> stackFourQ2 = new Stack<>();
+        Stack<Character> stackFiveQ2 = new Stack<>();
+        Stack<Character> stackSixQ2 = new Stack<>();
+        Stack<Character> stackSevenQ2 = new Stack<>();
+        Stack<Character> stackEightQ2 = new Stack<>();
+        Stack<Character> stackNineQ2 = new Stack<>();
+
         for(int i = one.length()-1; i >= 0; i--) {
             stackOne.push(one.charAt(i));
+            stackOneQ2.push(one.charAt(i));
         }
         for(int i = two.length()-1; i >= 0; i--) {
             stackTwo.push(two.charAt(i));
+            stackTwoQ2.push(two.charAt(i));
         }
         for(int i = three.length()-1; i >= 0; i--) {
             stackThree.push(three.charAt(i));
+            stackThreeQ2.push(three.charAt(i));
         }
         for(int i = four.length()-1; i >= 0; i--) {
             stackFour.push(four.charAt(i));
+            stackFourQ2.push(four.charAt(i));
         }
         for(int i = five.length()-1; i >= 0; i--) {
             stackFive.push(five.charAt(i));
+            stackFiveQ2.push(five.charAt(i));
         }
         for(int i = six.length()-1; i >= 0; i--) {
             stackSix.push(six.charAt(i));
+            stackSixQ2.push(six.charAt(i));
         }
         for(int i = seven.length()-1; i >= 0; i--) {
             stackSeven.push(seven.charAt(i));
+            stackSevenQ2.push(seven.charAt(i));
         }
         for(int i = eight.length()-1; i >= 0; i--) {
             stackEight.push(eight.charAt(i));
+            stackEightQ2.push(eight.charAt(i));
         }
         for(int i = nine.length()-1; i >= 0; i--) {
             stackNine.push(nine.charAt(i));
+            stackNineQ2.push(nine.charAt(i));
         }
 
         // read commands
@@ -126,47 +148,57 @@ public class SupplySnacks {
             String fromSub = countSub.substring(7);
             String toSub = fromSub.substring(5);
 
-            int count = Integer.parseInt(""+countSub.charAt(0));
-            int from = Integer.parseInt(""+fromSub.charAt(0));
-            int to = Integer.parseInt(""+toSub.charAt(0));
+            int count = Integer.parseInt(""+countSub.trim().substring(0,2).trim());
+            int from = Integer.parseInt(""+fromSub.trim().substring(0,2).trim());
+            int to = Integer.parseInt(""+toSub.trim().charAt(0));
 
-            for(int i = count; i >= 0; i--) {
+            for(int i = count; i > 0; i--) {
                 char cur = ' ';
+                String curSen = "";
                 switch (from) {
                     case 1: {
                         cur = stackOne.pop();
+                        curSen += cur;
                         break;
                     }
                     case 2: {
                         cur = stackTwo.pop();
+                        curSen += cur;
                         break;
                     }
                     case 3: {
                         cur = stackThree.pop();
+                        curSen += cur;
                         break;
                     }
                     case 4: {
                         cur = stackFour.pop();
+                        curSen += cur;
                         break;
                     }
                     case 5: {
                         cur = stackFive.pop();
+                        curSen += cur;
                         break;
                     }
                     case 6: {
                         cur = stackSix.pop();
+                        curSen += cur;
                         break;
                     }
                     case 7: {
                         cur = stackSeven.pop();
+                        curSen += cur;
                         break;
                     }
                     case 8: {
                         cur = stackEight.pop();
+                        curSen += cur;
                         break;
                     }
                     case 9: {
                         cur = stackNine.pop();
+                        curSen += cur;
                         break;
                     }
                 }
@@ -209,11 +241,63 @@ public class SupplySnacks {
                         break;
                     }
                 }
+
+                if(i == 1) {
+                    for(int j = 0; i < curSen.length(); i++) {
+                        switch (to) {
+                            case 1: {
+                                stackOneQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 2: {
+                                stackTwoQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 3: {
+                                stackThreeQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 4: {
+                                stackFourQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 5: {
+                                stackFiveQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 6: {
+                                stackSixQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 7: {
+                                stackSevenQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 8: {
+                                stackEightQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                            case 9: {
+                                stackNineQ2.push(curSen.charAt(j));
+                                break;
+                            }
+                        }
+                    }
+                }
+
             }
 
-            break;
-
         }
+
+
+        String message = ""+ stackOne.pop() + stackTwo.pop() + stackThree.pop() + stackFour.pop() + stackFive.pop()
+                + stackSix.pop() + stackSeven.pop() + stackEight.pop() + stackNine.pop();
+
+        String messageQ2 = ""+ stackOneQ2.pop() + stackTwoQ2.pop() + stackThreeQ2.pop() + stackFourQ2.pop() + stackFiveQ2.pop()
+                + stackSixQ2.pop() + stackSevenQ2.pop() + stackEightQ2.pop() + stackNineQ2.pop();
+
+        System.out.println("message question one: " + message);
+        System.out.println("message question two: " + messageQ2);
     }
 
 
