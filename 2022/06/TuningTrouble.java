@@ -6,13 +6,12 @@ public class TuningTrouble {
 
     public static void main(String args[]) throws FileNotFoundException {
 
-        FileInputStream fis = new FileInputStream("/Users/sebi/IdeaProjects/AoC#1/src/ltd/FireEvening/inputs/06.txt");
+        FileInputStream fis = new FileInputStream("./input.txt");
         Scanner sc = new Scanner(fis);
         String input = sc.nextLine();
 
         char[] marker = new char[4];
         char[] starter = new char[14];
-
         int processedMarker = 0;
 
         for (int i = 0; i < input.length(); i++) {
@@ -35,26 +34,21 @@ public class TuningTrouble {
                 break;
             }
         }
-
         System.out.println("processed until marker: " + processedMarker);
         System.out.println("processed until starter: " + processedStarter);
-
     }
 
     private static boolean isSame(char[] array) {
         boolean isSame = false;
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length; j++) {
-
                 if (i == j) {
                     continue;
                 }
-
                 if (array[i] == array[j]) {
                     isSame = true;
                 }
             }
-
         }
         return isSame;
     }
