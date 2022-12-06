@@ -14,9 +14,9 @@ fun main() {
             carachters.forEachIndexed { index, c ->
                 marker[index % 4] = c
                 starter[index % 14] = c
-                if (index >= 4 && marker.toList() == marker.distinct() && markerCount == 0)
+                if (index >= 4  && markerCount == 0 && marker.toList() == marker.distinct())
                     markerCount = index
-                if (index >= 14 && starter.toList() == starter.distinct() && starterCount == 0)
+                if (index >= 14 && starterCount == 0 && starter.toList() == starter.distinct())
                     starterCount = index
             }
         }
