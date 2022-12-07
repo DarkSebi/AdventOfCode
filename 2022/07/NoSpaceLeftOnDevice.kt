@@ -42,10 +42,10 @@ fun main() {
                     list.add(innerItem)
                 }
                 list.remove(item)
-                return list
+                return resolveDir(directories, searchFor)
             }
         }
-        return directories.get(searchFor)!!
+        return list
     }
 
     resolveDir(directories, "/")
