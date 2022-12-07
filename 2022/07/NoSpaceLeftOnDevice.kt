@@ -1,5 +1,6 @@
 import java.io.File
 import java.io.InputStream
+import kotlin.reflect.typeOf
 
 fun main() {
 
@@ -28,31 +29,23 @@ fun main() {
 
 
     fun resolveDir(directories: HashMap<String, ArrayList<String>>, searchFor: String): ArrayList<String> {
-        directories.get(searchFor)?.forEach { it ->
-            if (it.contains("dir ")) {
-                val dir = it.substring(it.lastIndexOf(" ")).trim()
-                return resolveDir(directories, dir)
+        val list = directories.get(searchFor)
+        val listIterator = list!!.iterator()
+        while (listIterator.hasNext()) {
+            val item = listIterator.next()
+            if (item.contains("dir ")) {
+                val dir = item.substring(item.lastIndexOf(" ")).trim()
+                val listDir = resolveDir(directories, dir)
+                val innerListIterator = listDir.iterator()
+                while (innerListIterator.hasNext()) {
+                    val innerItem = innerListIterator.next()
+                    list.add(innerItem)
+                }
+                list.remove(item)
+                return list
             }
         }
         return directories.get(searchFor)!!
-    }
-
-    // resolve directories in directories
-    var iteratorDirs = directories.iterator()
-    while (iteratorDirs.hasNext()) {
-        var list = iteratorDirs.next()
-        var iteratorList = list.iterator
-    }
-    directories.forEach { key, list ->
-        list.forEach { it ->
-            if(it.contains("dir ")) {
-                val dir = it.substring(it.lastIndexOf(" ")).trim()
-                val listDir = resolveDir(directories, dir)
-                listDir?.forEach { innerIt ->
-                    list.add(innerIt)
-                }
-            }
-        }
     }
 
     resolveDir(directories, "/")
