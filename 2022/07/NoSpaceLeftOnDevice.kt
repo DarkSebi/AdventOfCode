@@ -5,7 +5,7 @@ import kotlin.reflect.typeOf
 fun main() {
 
     val inputStream: InputStream =
-        File("/Users/sebi/IdeaProjects/KotlinTest/src/main/kotlin/example.txt").inputStream();
+        File("./input.txt").inputStream();
 
     var directories: HashMap<String, ArrayList<String>> = HashMap()
     var cur = ""
@@ -35,8 +35,8 @@ fun main() {
             val item = listIterator.next()
             if (item.contains("dir ")) {
                 val dir = item.substring(item.lastIndexOf(" ")).trim()
-                val listDir = resolveDir(directories, dir)
-                val innerListIterator = listDir.iterator()
+                val listDir = directories.get(dir)
+                val innerListIterator = listDir!!.iterator()
                 while (innerListIterator.hasNext()) {
                     val innerItem = innerListIterator.next()
                     list.add(innerItem)
