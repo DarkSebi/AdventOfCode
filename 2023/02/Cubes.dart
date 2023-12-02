@@ -36,13 +36,13 @@ List<Game> convertLinesToGames(List<String> lines) {
   for(String line in lines) {
 
     int gameId = int.parse(line.split(":")[0].split("Game")[1].trim());
-    var drawingsLine = line.substring(line.indexOf(":") + 1).split(";");
+    var drawingsLine = line.substring(line.indexOf(":") + 1).split(";"); // returns "[1 blue, 2 green, 5 red] [10 red, 1 blue, 3 green] [14 red]"
 
     List<Drawing> drawings = new List.empty(growable: true);
 
     for(String drawingLine in drawingsLine) {
       // stores all counts of cubes within one drawing
-      var cubes = drawingLine.split(",");
+      var cubes = drawingLine.split(","); // returns "[1 blue] [2 green] [5 red]
 
       int countRed = 0;
       int countGreen = 0;
