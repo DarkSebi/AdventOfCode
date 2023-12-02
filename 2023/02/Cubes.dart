@@ -94,7 +94,7 @@ class Game {
 
     for(Drawing drawing in drawings) {
       if(!drawing.isPossible)  {
-        this.id = 0; // set id to 0 if there is at lease one impossible drawing
+        this.id = 0; // set id to 0 if there is at least one impossible drawing
       }
 
       if(drawing.redCubes! >= maxRed) {
